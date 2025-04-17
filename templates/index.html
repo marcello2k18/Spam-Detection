@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #F0F0F0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9f7e9;
+            border: 1px solid #b8e6b8;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .error {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f7e9e9;
+            border: 1px solid #e6b8b8;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Spam Detection</h1>
+    <form method="POST" action="/">
+        <label for="message">Enter the SMS message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Enter your message here..." required></textarea>
+        <button type="submit">Check if it's Spam</button>
+    </form>
+
+    {% if prediction_result %}
+        <div class="result">
+            {{ prediction_result }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
